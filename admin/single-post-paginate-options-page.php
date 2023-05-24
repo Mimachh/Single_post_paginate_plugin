@@ -20,7 +20,6 @@ function single_post_paginate_options_page_html() { ?>
                     settings_fields('spp_settings_group_name');
                     do_settings_sections('spp-admin-options');
                     submit_button();
-
                 ?>
             </form>
         </div>
