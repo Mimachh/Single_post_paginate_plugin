@@ -1,0 +1,91 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+:root {
+   --single-post-paginate-primary-color: #0f0e17;
+   --single-post-paginate-secondary-color: #ff8906;
+   --single-post-paginate-tertiary-color: #f25f4c;
+   --single-post-paginate-disabled-color: #a7a9be;
+}
+
+.spp-bg-primary-color {
+   background-color: var(--single-post-paginate-primary-color);
+}
+
+.spp-content p {
+   font-size: 16px;
+}
+
+.spp-content ul li {
+   font-size: 14px;
+}
+
+.spp-flex-between {
+   width: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   gap: 18px;
+}
+
+.spp-input-field .switch {
+   position: relative;
+   display: inline-block;
+   width: 60px;
+   height: 30px;
+}
+ 
+.spp-input-field .switch input { 
+   opacity: 0;
+   width: 0;
+   height: 0;
+}
+ 
+.spp-input-field .slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: var(--single-post-paginate-disabled-color);
+   -webkit-transition: .4s;
+   transition: .4s;
+}
+ 
+.spp-input-field .slider:before {
+   position: absolute;
+   content: "";
+   height: 20px;
+   width: 20px;
+   left: 5px;
+   bottom: 5px;
+   background-color: white;
+   -webkit-transition: .4s;
+   transition: .4s;
+}
+ 
+.spp-input-field input:checked + .slider {
+   background-color: var(--single-post-paginate-secondary-color);
+}
+ 
+.spp-input-field input:focus + .slider {
+   box-shadow: 0 0 1px var(--single-post-paginate-secondary-color);
+}
+ 
+.spp-input-field input:checked + .slider:before {
+   -webkit-transform: translateX(28px);
+   -ms-transform: translateX(28px);
+   transform: translateX(28px);
+}
+ 
+ /* Rounded sliders */
+ .spp-input-field .slider.round {
+   border-radius: 34px;
+}
+ 
+.spp-input-field .slider.round:before {
+   border-radius: 50%;
+}
