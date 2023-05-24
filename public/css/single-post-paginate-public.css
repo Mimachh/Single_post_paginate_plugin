@@ -2,3 +2,89 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+ .spp-template-2 {
+    margin-top: 75px;
+    position: relative;
+ }
+ .spp-template-2 .pagination-wrapper {
+    font-size: 0;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: red;
+  }
+
+  .spp-template-2 .little-dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 6px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .spp-template-2 .little-dot--first,
+  .spp-template-2 .little-dot--last {
+    z-index: 5;
+  }
+  
+  .spp-template-2 .big-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background: #f6af54;
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+  }
+  
+  .spp-template-2 .transition-next .big-dot {
+    right: auto;
+    left: -6px;
+  }
+  
+  .spp-template-2 .big-dot-container {
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  .spp-template-2 .transition-next .big-dot-container {
+    right: auto;
+    left: 3px;
+  }
+  
+  
+  .spp-template-2 .btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #fff;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    background-color: red;
+  }
+  
+  .spp-template-2 .btn:hover {
+    opacity: 0.6;
+  }
+  
+  .spp-template-2 .btn--next {
+    left: calc(100% + 20px);  
+  }
+  
+  .spp-template-2 .btn--prev {
+    right: calc(100% + 20px);
+  }

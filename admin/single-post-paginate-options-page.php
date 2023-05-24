@@ -8,6 +8,7 @@ function single_post_paginate_options_page_html() { ?>
         - choix du template avec images exemple : bouton radio
         <!-- - Emplacement, debut ou fin de contenu -->
         - Text première et dernière page
+        - Laisser le choix de la couleur
         - Shortcode
 
     Tout est envoyé dans la table options
