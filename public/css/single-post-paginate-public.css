@@ -3,21 +3,82 @@
  * included in this file.
  */
 
+ /* BASIC PREV NEXT TEMPLATE */
+ .spp-container-pagination-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spp-pagination-template-1 {
+  margin: 25px 0 15px 0;
+}
+.spp-pagination-template-1,
+.spp-pagination-template-1 li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.spp-pagination-template-1 li {
+  background: #f23b26;
+  list-style: none;
+}
+.spp-pagination-template-1 li a {
+  text-decoration: none;
+  color: #fdfdfd;
+  height: 50px;
+  width: fit-content;
+  font-size: 18px;
+  padding-top: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-right-width: 0px;
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.35);
+}
+
+.spp-pagination-template-1 li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-top-color: rgba(0, 0, 0, 0.35);
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+.spp-pagination-template-1 li a:focus,
+.spp-pagination-template-1 li a:active {
+  padding-top: 4px;
+  border-left-width: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.25);
+}
+.spp-pagination-template-1 li.icon a {
+  min-width: 120px;
+}
+.spp-pagination-template-1 li:first-child span {
+  padding-right: 8px;
+}
+.spp-pagination-template-1 li:last-child span {
+  padding-left: 8px;
+}
+ /* TEMPLATE 2 WITH DOTS */
  .spp-template-2 {
-    margin-top: 75px;
     position: relative;
+    width: 18%;
+    margin: 50px auto;
+    height: 100px;
+    background-color: blue;
+    opacity: 0.5;
  }
- .spp-template-2 .pagination-wrapper {
+ .spp-template-2 .spp-pagination-wrapper {
     font-size: 0;
     position: absolute;
-    bottom: 0%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    background-color: red;
   }
 
-  .spp-template-2 .little-dot {
+  .spp-template-2 .spp-little-dot {
     width: 6px;
     height: 6px;
     background: #fff;
@@ -29,12 +90,12 @@
     z-index: 10;
   }
   
-  .spp-template-2 .little-dot--first,
-  .spp-template-2 .little-dot--last {
+  .spp-template-2 .spp-little-dot--first,
+  .spp-template-2 .spp-little-dot--last {
     z-index: 5;
   }
   
-  .spp-template-2 .big-dot {
+  .spp-template-2 .spp-big-dot {
     width: 12px;
     height: 12px;
     border-radius: 100%;
@@ -45,12 +106,12 @@
     transform: translateY(-50%);
   }
   
-  .spp-template-2 .transition-next .big-dot {
+  .spp-template-2 .spp-transition-next .spp-big-dot {
     right: auto;
     left: -6px;
   }
   
-  .spp-template-2 .big-dot-container {
+  .spp-template-2 .spp-big-dot-container {
     width: 18px;
     height: 18px;
     border-radius: 100%;
@@ -61,30 +122,29 @@
     z-index: 10;
   }
   
-  .spp-template-2 .transition-next .big-dot-container {
+  .spp-template-2 .spp-transition-next .spp-big-dot-container {
     right: auto;
     left: 3px;
   }
   
   
-  .spp-template-2 .btn {
+  .spp-template-2 .spp-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     fill: #fff;
     cursor: pointer;
     transition: opacity 0.2s;
-    background-color: red;
   }
   
-  .spp-template-2 .btn:hover {
+  .spp-template-2 .spp-btn:hover {
     opacity: 0.6;
   }
   
-  .spp-template-2 .btn--next {
+  .spp-template-2 .spp-btn--next {
     left: calc(100% + 20px);  
   }
   
-  .spp-template-2 .btn--prev {
+  .spp-template-2 .spp-btn--prev {
     right: calc(100% + 20px);
   }
