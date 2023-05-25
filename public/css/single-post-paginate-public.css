@@ -148,3 +148,90 @@
   .spp-template-2 .spp-btn--prev {
     right: calc(100% + 20px);
   }
+
+/* THIRD TEMPLATE */
+
+
+
+p, li, a{
+  font-size: 14px;
+}
+
+.spp-container-3 {
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+
+.spp-pagination-3 {
+  padding: 30px 0;
+}
+
+.spp-pagination-3 ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.spp-pagination-3 a {
+  display: inline-block;
+  padding: 10px 18px;
+  color: #222;
+}
+
+.spp-p8 a {
+  background-color: #2ecc71;
+  margin: auto 5px;
+  color: #fff;
+  font-weight: bold;
+  border: 3px solid #2ecc71;
+}
+
+.spp-p8 a:hover {
+  opacity: 0.5;
+}
+
+.spp-p8 .is-active {
+  background-color: #fff;
+  color: #2ecc71;
+}
+
+/* Forth template, same container third */
+
+.spp-p11 a{
+  background-color: #2ecc71;
+  margin: auto 5px;
+  color: #fff;
+  border: 1px solid #2ecc71;
+  position: relative;
+}
+
+.spp-p11 a:hover{
+  opacity: 0.5;
+}
+
+.spp-p11 a:first-of-type:before{
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -23px;
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  border-right: 22px solid #2ecc71;
+}
+
+.spp-p11 a:last-of-type:after{
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -23px;
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  border-left: 22px solid #2ecc71;
+}
+
+.spp-p11 .is-active{
+  font-weight: bold;
+}

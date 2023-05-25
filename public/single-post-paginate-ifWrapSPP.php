@@ -6,6 +6,12 @@ require_once plugin_dir_path( __FILE__ ) . 'partials/templates/template-prev-nex
 // Second template
 require_once plugin_dir_path( __FILE__ ) . 'partials/templates/template-dots.php';
 
+// third template
+require_once plugin_dir_path( __FILE__ ) . 'partials/templates/arrows_only.php';
+
+// forth template
+require_once plugin_dir_path( __FILE__ ) . 'partials/templates/prev-next-basic-2.php';
+
 
 add_filter('the_content', 'ifWrapSPP');
 
@@ -31,9 +37,16 @@ function createSingleHTMLSPP($content) {
     // il faudra que je passe le resultat des options du titre prev et next
     $spp_paginate_basic_prev_next = spp_paginate_basic_prev_next($previous_post_url, $next_post_url);
 
-
     // template 2
-    $spp_paginate_template = spp_second_template($previous_post_url, $next_post_url);
+    $spp_paginate_template_with_dots = spp_second_template($previous_post_url, $next_post_url);
+
+    // template 3
+    $spp_paginate_arrows = spp_paginate_arrows($previous_post_url, $next_post_url);
+
+    // template 4
+    $spp_paginate_basic_prev_next_2 = spp_paginate_basic_prev_next_2($previous_post_url, $next_post_url);
+    
+
     // Intégrer une condition en fonction du choix du template
     // si template choisi == 1 alors utilise telle fonction etc
     // chaque fonction génère et return un html qui sera récupéré ensuite juste en dessous. 
