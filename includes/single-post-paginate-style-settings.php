@@ -93,12 +93,118 @@ function SPPStylesettings() {
         );
 
         // Borders
-        // Ici je fais la grosseur des bordures et la couleur
+        register_setting(
+            'spp_style_group_name', // Groupe d'options pour les options de bordure
+            'spp_border_thickness_pagination',
+            array('sanitize_callback' => 'spp_sanitize_number_field', 'default' =>  "0")
+        );
+
+        add_settings_field(
+            'spp_style_border_thickness_choice',
+            esc_html__('Épaisseur des bordures', 'single-post-paginate-domain'),
+            'sppBorderThicknessFieldHTML',
+            'spp-admin-style',
+            'spp-style-border-section' // Utilisez l'identifiant de section correspondant
+        );
+
+        register_setting(
+            'spp_style_group_name', // Groupe d'options pour les options de bordure
+            'spp_border_style_pagination',
+            array('sanitize_callback' => 'sanitize_text_field', 'default' =>  "solid")
+        );
+
+        add_settings_field(
+            'spp_style_border_style_choice',
+            esc_html__('Style de bordure', 'single-post-paginate-domain'),
+            'sppBorderStyleFieldHTML',
+            'spp-admin-style',
+            'spp-style-border-section' // Utilisez l'identifiant de section correspondant
+        );
+
+        register_setting(
+            'spp_style_group_name', // Groupe d'options pour les options de bordure
+            'spp_border_color_pagination',
+            array('sanitize_callback' => 'sanitize_text_field', 'default' =>  "#000000")
+        );
+
+        add_settings_field(
+            'spp_style_border_color_choice',
+            esc_html__('Couleur de bordure', 'single-post-paginate-domain'),
+            'sppBorderColorFieldHTML',
+            'spp-admin-style',
+            'spp-style-border-section' // Utilisez l'identifiant de section correspondant
+        );
     }
 
+    // BOX SHADOW SECTION
+    add_settings_section(
+        'spp-style-shadow-section', // Slug de la section 
+        esc_html__('Shadow Box', 'single-post-paginate-domain'), 
+        'spp_style_shadow_section_callback', 
+        'spp-admin-style'
+    );
+    // Activer/désactiver la Shadow Box
+    register_setting(
+        'spp_style_group_name', // Nom du groupe d'options
+        'spp_shadow_box_enabled',
+        array('sanitize_callback' => 'sanitize_text_field', 'default' => 0)
+    );
 
+    add_settings_field(
+        'spp_shadow_box_enabled_field',
+        esc_html__('Activer Shadow Box', 'single-post-paginate-domain'),
+        'sppShadowBoxEnabledFieldHTML',
+        'spp-admin-style',
+        'spp-style-shadow-section'
+    );
+
+    // Choix de l'ombre (inner ou outter)
+    register_setting(
+        'spp_style_group_name', // Nom du groupe d'options
+        'spp_shadow_box_type',
+        array('sanitize_callback' => 'sanitize_text_field', 'default' => 'outter')
+    );
+
+    add_settings_field(
+        'spp_shadow_box_type_field',
+        esc_html__('Type de Shadow Box', 'single-post-paginate-domain'),
+        'sppShadowBoxTypeFieldHTML',
+        'spp-admin-style',
+        'spp-style-shadow-section'
+    );
+
+    // Choix de la taille de l'ombre
+    register_setting(
+        'spp_style_group_name', // Nom du groupe d'options
+        'spp_shadow_box_size',
+        array('sanitize_callback' => 'sanitize_text_field', 'default' => 'medium')
+    );
+
+    add_settings_field(
+        'spp_shadow_box_size_field',
+        esc_html__('Taille de la Shadow Box', 'single-post-paginate-domain'),
+        'sppShadowBoxSizeFieldHTML',
+        'spp-admin-style',
+        'spp-style-shadow-section'
+    );
+
+    // Couleur de l'ombre
+    register_setting(
+        'spp_style_group_name', // Nom du groupe d'options
+        'spp_shadow_box_color',
+        array('sanitize_callback' => 'sanitize_hex_color', 'default' => '#000000')
+    );
+
+    add_settings_field(
+        'spp_shadow_box_color_field',
+        esc_html__('Couleur de la Shadow Box', 'single-post-paginate-domain'),
+        'sppShadowBoxColorFieldHTML',
+        'spp-admin-style',
+        'spp-style-shadow-section'
+    );
     // Ici je ferais le template 2 qui en plus des flèches et du fond d'écran doit pourvoir changer le gros point et les petits points
 
+    // Si shadow disabled ne pas montrer la div
 
     // Attaquer la pagination premium
 
