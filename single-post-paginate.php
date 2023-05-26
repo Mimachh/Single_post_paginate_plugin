@@ -98,7 +98,8 @@ add_action('wp_enqueue_scripts', 'enqueue_public_spp_styles');
 
 
 require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-functions.php';
-require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-settings.php';
+require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-options-settings.php';
+require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-style-settings.php';
 require_once plugin_dir_path(__FILE__) . 'public/single-post-paginate-ifWrapSPP.php';
 
 

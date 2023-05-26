@@ -89,3 +89,55 @@
 .spp-input-field .slider.round:before {
    border-radius: 50%;
 }
+
+
+/* Template Part */
+.spp-radio-template-div {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   width: 250px;
+}
+
+.spp-radio-label input[type="radio"] + img {
+   width: 100%;
+   height: auto;
+}
+
+.spp-radio-label {
+   position: relative;
+   display: inline-block;
+   margin-right: 10px;
+}
+ 
+.spp-radio-label input[type="radio"] {
+   display: none;
+}
+ 
+.spp-radio-label input[type="radio"] + img {
+   border: 3px solid transparent; /* Couleur de la bordure lorsqu'il est coché */
+   position: relative;
+   z-index: 2;
+}
+ 
+.spp-radio-label input[type="radio"]:checked + img {
+   border: 3px solid var(--single-post-paginate-secondary-color); /* Couleur de la bordure lorsqu'il est coché */
+}
+
+.spp-radio-template-premium {
+   position: relative;
+ }
+ 
+.spp-radio-template-premium::after {
+   content: "Premium only";
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   padding: 4px 8px;
+   background-color: rgb(202, 12, 12);
+   color: white;
+   font-size: 12px;
+   font-weight: bold;
+   border-radius: 4px;
+   z-index: 1000;
+}

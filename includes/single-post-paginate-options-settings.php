@@ -2,9 +2,9 @@
 
 require_once dirname(dirname(__FILE__)) . '/admin/form-fields/options-page/single-post-paginate-options-field-page.php';
 
-add_action('admin_init', 'SPPsettings');
+add_action('admin_init', 'SPPOptionssettings');
 
-function SPPsettings() {
+function SPPOptionssettings() {
     add_settings_section(
         'spp-options-section', //slug de la section 
         esc_html__('Pagination des articles', 'single-post-paginate-domain'), 
@@ -42,6 +42,19 @@ function SPPsettings() {
         'spp-options-section' // slug de la section
     );
 
-    
+    // CHOIX DU TEMPLATE
+    register_setting(
+        'spp_settings_group_name', // group input name
+        'spp_template_pagination', 
+        array('sanitize_callback' => 'sanitize_text_field', 'default' =>  "0")
+    );
+
+    add_settings_field(
+        'spp_template_choice', 
+        esc_html__('Choisissez la base de votre template (customisable ensuite)', 'single-post-paginate-domain'), 
+        'sppTemplateFieldHTML', 
+        'spp-admin-options', // slug de la page en cours
+        'spp-options-section' // slug de la section
+    );
 }
 

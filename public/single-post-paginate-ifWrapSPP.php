@@ -1,4 +1,6 @@
 <?php
+//switch Select template
+require_once plugin_dir_path( __FILE__ ) . 'partials/templates/switchSelectTemplate.php';
 
 //first template
 require_once plugin_dir_path( __FILE__ ) . 'partials/templates/template-prev-next-basic.php';
@@ -25,27 +27,10 @@ function ifWrapSPP($content) {
 }
 
 function createSingleHTMLSPP($content) {
-    // PREV NEXT URL
-    $previous_post_url = get_permalink(get_adjacent_post(false, '', true));
-    // $previous_title = url_to_postid($previous_post_url);
-    $next_post_url = get_permalink(get_adjacent_post(false, '', false));
-    // $next_title = url_to_postid($next_post_url);
-    
 
-    
-    // template 1
-    // il faudra que je passe le resultat des options du titre prev et next
-    $spp_paginate_basic_prev_next = spp_paginate_basic_prev_next($previous_post_url, $next_post_url);
 
-    // template 2
-    $spp_paginate_template_with_dots = spp_second_template($previous_post_url, $next_post_url);
-
-    // template 3
-    $spp_paginate_arrows = spp_paginate_arrows($previous_post_url, $next_post_url);
-
-    // template 4
-    $spp_paginate_basic_prev_next_2 = spp_paginate_basic_prev_next_2($previous_post_url, $next_post_url);
-    
+    $selectedTemplate = switchForSelectedTemplate();
+   
 
     // Intégrer une condition en fonction du choix du template
     // si template choisi == 1 alors utilise telle fonction etc
@@ -55,12 +40,12 @@ function createSingleHTMLSPP($content) {
         return 
         '<div>
             <div> '. $content .' </div>
-            <div> '. $spp_paginate_basic_prev_next .' </div> 
+            <div> '. $selectedTemplate .' </div> 
         </div>';
     } else {
         return 
         '<div>
-            <div> '. $spp_paginate_basic_prev_next .' </div> 
+            <div> '. $selectedTemplate .' </div> 
             <div> '. $content .' </div>
         </div>';
     }
