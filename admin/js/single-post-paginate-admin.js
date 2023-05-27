@@ -31,51 +31,108 @@
 
 })( jQuery );
 
+
 window.onload = (event) => {
-	// Récupérer l'élément de commutation (input switch) pour la box shadow
-	var shadowSwitch = document.getElementById('spp_shadow_box_switch');
+    // Récupérer l'élément de commutation (input switch) pour l'activation de la pagination
+    var activateSwitch = document.getElementById('spp_activate_pagination');
 
-	// Récupérer les champs de saisie liés à la box shadow
-	var shadowColorInput = document.getElementById('spp_shadow_box_color');
-	var shadowSizeInput = document.getElementById('spp_shadow_box_size');
-	var shadowTypeInput = document.getElementById('spp_shadow_box_type');
-	var shadowFieldsContainers = document.getElementsByClassName('spp_shadowFieldsContainer');
+    // Vérifier si l'élément de commutation pour l'activation de la pagination existe
+    if (activateSwitch) {
+        // Récupérer les éléments des champs de saisie liés à la localisation et au template
+        var localisationField = document.querySelector('.spp-input-field select[name="spp_localisation_pagination"]');
+        var templateField = document.querySelector('.spp-input-field .spp-radio-template-div');
+		var displayFieldsContainers = document.getElementsByClassName('spp_displayFieldsContainer');
 
-	// Fonction pour cacher les champs de saisie et afficher le texte
-	function hideShadowFields() {
-		shadowColorInput.style.display = 'none';
-		shadowSizeInput.style.display = 'none';
-		shadowTypeInput.style.display = 'none';
+        // Fonction pour cacher les champs de saisie et les boutons du template
+        function hideFields() {
+            localisationField.style.display = 'none';
+            templateField.style.display = 'none';
+			for (var i = 0; i < displayFieldsContainers.length; i++) {
+                displayFieldsContainers[i].textContent = "La Pagination est désactivée !";
+            }
+        }
 
-		// Parcourir les éléments de la collection et définir le texte individuellement
-		for (var i = 0; i < shadowFieldsContainers.length; i++) {
-			shadowFieldsContainers[i].textContent = "La shadow box n'est pas activée";
-		}
-	}
+        // Fonction pour afficher les champs de saisie et les boutons du template
+        function showFields() {
+            localisationField.style.display = 'block';
+            templateField.style.display = 'block';
 
-	// Fonction pour afficher les champs de saisie et vider le texte
-	function showShadowFields() {
-		shadowColorInput.style.display = 'block';
-		shadowSizeInput.style.display = 'block';
-		shadowTypeInput.style.display = 'block';
+			// Parcourir les éléments de la collection et vider le texte individuellement
+			for (var i = 0; i < displayFieldsContainers.length; i++) {
+				displayFieldsContainers[i].textContent = "";
+			}
+        }
 
-		// Parcourir les éléments de la collection et vider le texte individuellement
-		for (var i = 0; i < shadowFieldsContainers.length; i++) {
-			shadowFieldsContainers[i].textContent = "";
-		}
-	}
+        // Événement de changement pour le switch d'activation de la pagination
+        activateSwitch.addEventListener('change', function() {
+            if (activateSwitch.checked) {
+                showFields();
+            } else {
+                hideFields();
+            }
+        });
 
-	// Événement de changement pour le switch de la box shadow
-	shadowSwitch.addEventListener('change', function() {
-		if (shadowSwitch.checked) {
-			showShadowFields();
-		} else {
-			hideShadowFields();
-		}
-	});
+        // Vérifier l'état initial du switch au chargement de la page
+        if (!activateSwitch.checked) {
+            hideFields();
+        }
+    }
 
-	// Vérifier l'état initial du switch au chargement de la page
-	if (!shadowSwitch.checked) {
-		hideShadowFields();
-	}
+
+	// STYLE PAGE
+	
+    // Récupérer l'élément de commutation (input switch) pour la box shadow
+    var shadowSwitch = document.getElementById('spp_shadow_box_switch');
+
+    // Vérifier si l'élément de commutation pour la box shadow existe
+    if (shadowSwitch) {
+        // Récupérer les champs de saisie liés à la box shadow
+        var shadowColorInput = document.getElementById('spp_shadow_box_color');
+        var shadowSizeInput = document.getElementById('spp_shadow_box_size');
+        var shadowTypeInput = document.getElementById('spp_shadow_box_type');
+        var shadowFieldsContainers = document.getElementsByClassName('spp_shadowFieldsContainer');
+
+        // Fonction pour cacher les champs de saisie et afficher le texte
+        function hideShadowFields() {
+            shadowColorInput.style.display = 'none';
+            shadowSizeInput.style.display = 'none';
+            shadowTypeInput.style.display = 'none';
+
+            // Parcourir les éléments de la collection et définir le texte individuellement
+            for (var i = 0; i < shadowFieldsContainers.length; i++) {
+                shadowFieldsContainers[i].textContent = "La shadow box n'est pas activée";
+            }
+        }
+
+        // Fonction pour afficher les champs de saisie et vider le texte
+        function showShadowFields() {
+            shadowColorInput.style.display = 'block';
+            shadowSizeInput.style.display = 'block';
+            shadowTypeInput.style.display = 'block';
+
+            // Parcourir les éléments de la collection et vider le texte individuellement
+            for (var i = 0; i < shadowFieldsContainers.length; i++) {
+                shadowFieldsContainers[i].textContent = "";
+            }
+        }
+
+        // Événement de changement pour le switch de la box shadow
+        shadowSwitch.addEventListener('change', function() {
+            if (shadowSwitch.checked) {
+                showShadowFields();
+            } else {
+                hideShadowFields();
+            }
+        });
+
+        // Vérifier l'état initial du switch au chargement de la page
+        if (!shadowSwitch.checked) {
+            hideShadowFields();
+        }
+    }
+
+
+
+
+	
 };

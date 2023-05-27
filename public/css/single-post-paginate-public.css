@@ -3,6 +3,11 @@
  * included in this file.
  */
 
+ :root{
+  --background-color-variable: white;
+
+}
+
  /* BASIC PREV NEXT TEMPLATE */
  .spp-container-pagination-1 {
   display: flex;
@@ -20,9 +25,10 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 5px;
 }
 .spp-pagination-template-1 li {
-  background: #f23b26;
+  /* background: #f23b26; */
   list-style: none;
 }
 .spp-pagination-template-1 li a {
@@ -38,6 +44,11 @@
   border-right-width: 0px;
   box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.35);
 }
+
+.spp-pagination-template-1 li a:hover {
+  opacity: 0.7;
+}
+
 
 .spp-pagination-template-1 li a:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -66,8 +77,6 @@
     width: 18%;
     margin: 50px auto;
     height: 100px;
-    background-color: blue;
-    opacity: 0.5;
  }
  .spp-template-2 .spp-pagination-wrapper {
     font-size: 0;
@@ -204,12 +213,12 @@ p, li, a{
   background-color: #2ecc71;
   margin: auto 5px;
   color: #fff;
-  border: 1px solid #2ecc71;
+  border: 1px solid var( --background-color-variable);
   position: relative;
 }
 
 .spp-p11 a:hover{
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .spp-p11 a:first-of-type:before{
@@ -219,7 +228,7 @@ p, li, a{
   left: -23px;
   border-top: 22px solid transparent;
   border-bottom: 22px solid transparent;
-  border-right: 22px solid #2ecc71;
+  border-right: 22px solid var( --background-color-variable);
 }
 
 .spp-p11 a:last-of-type:after{
@@ -229,7 +238,7 @@ p, li, a{
   right: -23px;
   border-top: 22px solid transparent;
   border-bottom: 22px solid transparent;
-  border-left: 22px solid #2ecc71;
+  border-left: 22px solid var( --background-color-variable);
 }
 
 .spp-p11 .is-active{

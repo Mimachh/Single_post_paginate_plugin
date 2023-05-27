@@ -11,6 +11,7 @@ function sppActivateFieldHTML() { ?>
             type="checkbox" 
             value="activate"
             <?php checked(esc_html(get_option('spp_activate_pagination') === 'activate')); ?>
+            id="spp_activate_pagination"
             >
             <span class="slider round"></span>
         </label>
@@ -24,11 +25,7 @@ function sppLocalisationFieldHTML() { ?>
             <option value="1" <?php selected(esc_html(get_option('spp_localisation_pagination'))); ?>><?php echo esc_html__('Debut du contenu', 'single-post-paginate-domain') ?></option>
         </select>
     </div>
-    <?php 
-    $image_url = plugin_dir_url(dirname(__FILE__)) . '../../assets/images/templates/template1.PNG';
-    ?>
-    <!-- <img src="<?php echo $image_url; ?>" alt="Ma super image"> -->
-    
+    <div class="spp_displayFieldsContainer"></div>
 <?php }
 
 function sppTemplateFieldHTML() { 
@@ -65,5 +62,6 @@ function sppTemplateFieldHTML() {
                 <img src="<?php echo $templatePremium; ?>" alt="Template 5">
             </label>
         </div>
+        <div class="spp_displayFieldsContainer"></div>
     </div>
 <?php }

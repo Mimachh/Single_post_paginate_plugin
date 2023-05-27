@@ -9,6 +9,14 @@
 
 function spp_paginate_basic_prev_next($previous_post_url, $next_post_url) {
     
+    $borderComplete = sppGenerateBorders();
+    $leftShadow = sppGenerateLeftShadowBox();
+    $rightShadow = sppGenerateRightShadowBox();
+
+    $arrowColor = sppGenerateArrowColor();
+    $bgColor = sppGenerateBgColor();
+    $textColor = sppGenerateTextColor();
+
     if(1 == 2 ) {
         $next_title = url_to_postid($next_post_url);
         $next_title = get_the_title($next_title);
@@ -29,8 +37,15 @@ function spp_paginate_basic_prev_next($previous_post_url, $next_post_url) {
       <li class="icon">';
         if($previous_post_url != get_the_permalink()) {
             $html .= '
-            <a href="'. $previous_post_url .'">
-                <span class="fas fa-angle-left"></span>
+            <a href="'. $previous_post_url .'" 
+            style="background-color: '. $bgColor .';
+            '. $borderComplete .';
+            '. $leftShadow  .';
+            color: '. $textColor .';
+            ">
+                <span class="fas fa-angle-left"
+                style="color: '. $arrowColor .';"
+                ></span>
                 '.  $previous_title .'
             </a>';
         }
@@ -39,9 +54,17 @@ function spp_paginate_basic_prev_next($previous_post_url, $next_post_url) {
       <li class="icon">';
         if($next_post_url != get_the_permalink()) {
           $html .= '
-            <a href="'. $next_post_url .'">
+            <a href="'. $next_post_url .'"
+            style="background-color: '. $bgColor .';
+            '. $borderComplete .';
+            '. $rightShadow  .';
+            color: '. $textColor .';
+            "
+            >
             '. $next_title .'
-                <span class="fas fa-angle-right"></span>
+                <span class="fas fa-angle-right"
+                style="color: '. $arrowColor .';"
+                ></span>
             </a>';
         }
         $html .= '

@@ -51,7 +51,7 @@ function SPPStylesettings() {
         );
     }
 
-    if($choixDuTemplate != 5) {
+    if($choixDuTemplate == 1 OR $choixDuTemplate == 2 OR $choixDuTemplate == 3 ) {
         // Arrow Color
         register_setting(
             'spp_style_group_name', // group input name
@@ -68,8 +68,6 @@ function SPPStylesettings() {
         );
     }
 
-
-    if($choixDuTemplate == 1 OR $choixDuTemplate == 3) {
         // BORDER Radius
         add_settings_section(
             'spp-style-border-section', // slug de la section 
@@ -134,7 +132,6 @@ function SPPStylesettings() {
             'spp-admin-style',
             'spp-style-border-section' // Utilisez l'identifiant de section correspondant
         );
-    }
 
     // BOX SHADOW SECTION
     add_settings_section(
@@ -202,10 +199,47 @@ function SPPStylesettings() {
         'spp-admin-style',
         'spp-style-shadow-section'
     );
-    // Ici je ferais le template 2 qui en plus des flèches et du fond d'écran doit pourvoir changer le gros point et les petits points
+    
+    if($choixDuTemplate == 2) {
+        // Point Color
+        add_settings_section(
+            'spp-style-point-color-section', //slug de la section 
+            esc_html__('Couleurs des points', 'single-post-paginate-domain'), 
+            'spp_style_section_callback', 
+            'spp-admin-style'
+        );
 
-    // Si shadow disabled ne pas montrer la div
+        register_setting(
+            'spp_style_group_name',
+            'spp_big_point_color_pagination',
+            array('sanitize_callback' => 'sanitize_text_field', 'default' =>  "#000000")
+        );
+
+        add_settings_field(
+            'spp_style_big_point_color_choice',
+            esc_html__('Couleur du gros point', 'single-post-paginate-domain'),
+            'sppBigPointColorFieldHTML',
+            'spp-admin-style',
+            'spp-style-point-color-section'
+        );
+
+        // Small Points Color
+        register_setting(
+            'spp_style_group_name',
+            'spp_small_points_color_pagination',
+            array('sanitize_callback' => 'sanitize_text_field', 'default' =>  "#000000")
+        );
+
+        add_settings_field(
+            'spp_style_small_points_color_choice',
+            esc_html__('Couleur des petits points', 'single-post-paginate-domain'),
+            'sppSmallPointsColorFieldHTML',
+            'spp-admin-style',
+            'spp-style-point-color-section'
+        );
+    }
 
     // Attaquer la pagination premium
+
 
 }

@@ -20,6 +20,7 @@ function sppArrowColorFieldHTML() { ?>
     <div class="spp-input-field">
         <input name="spp_arrow_color_pagination" type="color" id="colorPicker" value="<?php echo esc_html(get_option('spp_arrow_color_pagination'), "#000"); ?>">
     </div>
+    <div class="spp_space_between_section"></div>
 <?php }
 
 
@@ -66,6 +67,7 @@ function sppBorderColorFieldHTML() {
     <div class="spp-input-field">
         <input name="spp_border_color_pagination" type="color" value="<?php echo $border_color; ?>">
     </div>
+    <div class="spp_space_between_section"></div>
     <?php
 }
 
@@ -125,9 +127,23 @@ function sppShadowBoxColorFieldHTML() {
     $shadow_color = esc_attr(get_option('spp_shadow_box_color', '#000000'));
     ?>
     <div class="spp-input-field" id="spp_shadow_box_color">
-        <h3 class="spp-shadow-box-title"><?php esc_html_e('Couleur de la Shadow Box', 'single-post-paginate-domain'); ?></h3>
         <input name="spp_shadow_box_color" type="color" value="<?php echo $shadow_color; ?>">
     </div>
     <div class="spp_shadowFieldsContainer"></div>
+    <div class="spp_space_between_section"></div>
+    <?php
+}
+
+function sppBigPointColorFieldHTML() {
+    $bigDotColor = get_option('spp_big_point_color_pagination', '#000000');
+    ?>
+    <input type="color" name="spp_big_point_color_pagination" value="<?php echo esc_attr($bigDotColor); ?>">
+    <?php
+}
+
+function sppSmallPointsColorFieldHTML() {
+    $smallDotsColor = get_option('spp_small_points_color_pagination', '#000000');
+    ?>
+    <input type="color" name="spp_small_points_color_pagination" value="<?php echo esc_attr($smallDotsColor); ?>">
     <?php
 }

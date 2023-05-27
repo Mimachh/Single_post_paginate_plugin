@@ -111,5 +111,3 @@ require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-function
 require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-options-settings.php';
 require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-style-settings.php';
 require_once plugin_dir_path(__FILE__) . 'public/single-post-paginate-ifWrapSPP.php';
-
-

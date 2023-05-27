@@ -1,5 +1,11 @@
 <?php
 
+function adjustLeftShadow($size, $is_inset, $shadow_color) {
+    return $leftShadow = "-webkit-box-shadow: $is_inset 5px 5px 15px $size $shadow_color; 
+    box-shadow: $is_inset 5px 5px 15px $size $shadow_color;";
+}
+
+
 function sppGenerateLeftShadowBox() {
     $shadow_box_enable = esc_attr( get_option('spp_shadow_box_enabled', 0));
     
@@ -25,17 +31,19 @@ function sppGenerateLeftShadowBox() {
 
     if($shadow_box_enable === "activate" ) {
         
-        function adjustLeftShadow($size, $is_inset, $shadow_color) {
-            return $leftShadow = "-webkit-box-shadow: $is_inset 5px 5px 15px $size $shadow_color; 
-            box-shadow: $is_inset 5px 5px 15px $size $shadow_color;";
-        }
 
         return $leftShadow = adjustLeftShadow($size, $is_inset, $shadow_color);
 
+        
     } else {
         return $leftShadow = "";
     }
 
+}
+
+function adjustRightShadow($size, $is_inset, $shadow_color) {
+    return $rightShadow = "-webkit-box-shadow: $is_inset -5px 5px 15px $size $shadow_color; 
+    box-shadow: $is_inset -5px 5px 15px $size $shadow_color;";
 }
 
 function sppGenerateRightShadowBox() {
@@ -61,10 +69,7 @@ function sppGenerateRightShadowBox() {
     
     if($shadow_box_enable === "activate" ) {
         
-        function adjustRightShadow($size, $is_inset, $shadow_color) {
-            return $rightShadow = "-webkit-box-shadow: $is_inset -5px 5px 15px $size $shadow_color; 
-            box-shadow: $is_inset -5px 5px 15px $size $shadow_color;";
-        }
+
 
         return $rightShadow = adjustRightShadow($size, $is_inset, $shadow_color);
 
