@@ -111,3 +111,10 @@ require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-function
 require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-options-settings.php';
 require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-style-settings.php';
 require_once plugin_dir_path(__FILE__) . 'public/single-post-paginate-ifWrapSPP.php';
+
+// Shortcode
+require_once plugin_dir_path(__FILE__) . 'admin/spp-custom-post-type/init.php';
+require_once plugin_dir_path(__FILE__) . 'admin/spp-custom-post-type/custom-fields/activation/init.php';
+require_once plugin_dir_path(__FILE__) . 'admin/spp-custom-post-type/custom-fields/activation/form.php';
+
+require_once plugin_dir_path(__FILE__) . 'public/shortcode/create-spp-shortcode.php';
