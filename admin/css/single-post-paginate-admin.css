@@ -2,6 +2,7 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+ @import 'https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css';
 
 :root {
    --single-post-paginate-primary-color: #0f0e17;
@@ -198,4 +199,32 @@
 }
 .spp-input-field-shortcode > .input {
   width: 70%;
+}
+
+
+/*  Image selection  */
+.spp-input-field-img-choose {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ gap: 25px;
+}
+
+.spp-preview-image {
+   width: 100%;
+   max-width: 130px;
+   height: auto;
+   margin-top: 10px;
+}
+
+#spp_custom_logo_link {
+   width: 250px;
+   border: none;
+   outline: none;
+}
+
+.spp_custom_logo_link_div {
+   display: flex;
+   align-items: center;
+   gap: 25px;
 }

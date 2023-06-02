@@ -56,9 +56,13 @@ function sppTemplateFieldHTML() {
                 <input type="radio" name="spp_template_pagination" value="4" <?php checked(esc_html(get_option('spp_template_pagination') == 4)); ?>>
                 <img src="<?php echo $template4; ?>" alt="Template 4">
             </label>
-
+<!-- 
             <label class="spp-radio-label spp-radio-template-premium">
                 <input type="radio" name="spp_template_pagination" value="5" disabled>
+                <img src="<?php echo $templatePremium; ?>" alt="Template 5">
+            </label> -->
+            <label class="spp-radio-label spp-radio-template-premium">
+                <input type="radio" name="spp_template_pagination" value="5" <?php checked(esc_html(get_option('spp_template_pagination') == 5)); ?>>
                 <img src="<?php echo $templatePremium; ?>" alt="Template 5">
             </label>
         </div>

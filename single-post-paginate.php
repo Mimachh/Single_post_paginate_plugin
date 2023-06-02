@@ -84,6 +84,7 @@ run_single_post_paginate();
 //backend style
 function enqueue_admin_spp_styles()
 {
+	wp_enqueue_media();
     wp_enqueue_style('SPP-admin-style', plugin_dir_url(__FILE__) . 'admin/css/single-post-paginate-admin.css');
 	wp_enqueue_script('SPP-admin-js', plugin_dir_url(__FILE__) . 'admin/js/single-post-paginate-admin.js');
 }
@@ -103,9 +104,16 @@ require_once plugin_dir_path(__FILE__) . 'public/partials/shadows/single-post-pa
 
 //shadow border pagination
 require_once plugin_dir_path(__FILE__) . 'public/partials/borders/single-post-paginate-public-borders.php';
+require_once plugin_dir_path(__FILE__) . 'public/partials/borders/single-post-paginate-public-borders-color.php';
 
 //shadow main colors
 require_once plugin_dir_path(__FILE__) . 'public/partials/colors/single-post-paginate-colors.php';
+
+// text choice
+require_once plugin_dir_path(__FILE__) . 'public/partials/text/single-post-paginate-public-text.php';
+
+// image choice
+require_once plugin_dir_path(__FILE__) . 'public/partials/image/single-post-paginate-image-choosen.php';
 
 require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-functions.php';
 require_once plugin_dir_path(__FILE__) . 'includes/single-post-paginate-options-settings.php';

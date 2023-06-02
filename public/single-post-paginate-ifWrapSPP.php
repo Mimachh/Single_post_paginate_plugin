@@ -1,6 +1,9 @@
 <?php
+// template premium 1
+require_once plugin_dir_path( __FILE__ ) . 'partials/templates/template-premium-first.php';
+
 //switch Select template
-require_once plugin_dir_path( __FILE__ ) . 'partials/templates/switchSelectTemplate.php';
+require_once plugin_dir_path( __FILE__ ) . 'partials/templates/switchSelectTemplate2.php';
 
 //first template
 require_once plugin_dir_path( __FILE__ ) . 'partials/templates/template-prev-next-basic.php';
@@ -13,6 +16,7 @@ require_once plugin_dir_path( __FILE__ ) . 'partials/templates/arrows_only.php';
 
 // forth template
 require_once plugin_dir_path( __FILE__ ) . 'partials/templates/prev-next-basic-2.php';
+
 
 
 add_filter('the_content', 'ifWrapSPP');
@@ -29,7 +33,7 @@ function ifWrapSPP($content) {
 function createSingleHTMLSPP($content) {
 
 
-    $selectedTemplate = switchForSelectedTemplate();
+    $selectedTemplate = switchForSelectedTemplate2();
    
 
     // Intégrer une condition en fonction du choix du template

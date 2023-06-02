@@ -1,38 +1,3 @@
-(function( $ ) {
-	'use strict';
-
-	/**
-	 * All of the code for your admin-facing JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note: It has been assumed you will write jQuery code here, so the
-	 * $ function reference has been prepared for usage within the scope
-	 * of this function.
-	 *
-	 * This enables you to define handlers, for when the DOM is ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * When the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and/or other possibilities.
-	 *
-	 * Ideally, it is not considered best practise to attach more than a
-	 * single DOM-ready or window-load handler for a particular page.
-	 * Although scripts in the WordPress core, Plugins and Themes may be
-	 * practising this, we should strive to set a better example in our own work.
-	 */
-
-})( jQuery );
-
-
-
 document.addEventListener('DOMContentLoaded', function(event) {
     // Récupérer l'élément de commutation (input switch) pour l'activation de la pagination
     var activateSwitch = document.getElementById('spp_activate_pagination');
@@ -132,8 +97,133 @@ document.addEventListener('DOMContentLoaded', function(event) {
         }
     }
 
+    // Cacher le choix de l'image si non actif
+    var chooseImageButton = document.querySelector('.spp-choose-image-button');
+    var changeImageButton = document.querySelector('.spp-change-image-button');
+    var removeImageButton = document.querySelector('.remove-image-button');
+    var bgImageInput = document.querySelector('#sppbgImage');
+    var previewImage = document.querySelector('.spp-preview-image');
+    var sppImageChooseDivHideByDefault = document.querySelector('.spp-input-field-img-choose');
+    sppImageChooseDivHideByDefault.style.display = 'none';
+    var sppImageSwitch = document.getElementById('spp_image_switch');
+
+    if (sppImageSwitch.checked) {
+        showImageFields();
+    } else {
+        hideImageFields();
+    }
+    sppImageSwitch.addEventListener('change', function() {
+        if (sppImageSwitch.checked) {
+            showImageFields();
+        } else {
+            hideImageFields();
+        }
+    });
 
 
+    function hideImageFields() {
+        sppImageChooseDivHideByDefault.style.display = 'none';
+    }
+    function showImageFields() {
+        sppImageChooseDivHideByDefault.style.display = 'flex';
 
-	
+    }
+
+
+    if (chooseImageButton) {
+        chooseImageButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            var mediaUploader = wp.media({
+                title: '<?php esc_html_e("Choisir une image", "single-post-paginate-domain"); ?>',
+                multiple: false
+            });
+
+            mediaUploader.on('select', function() {
+                var selectedImage = mediaUploader.state().get('selection').first().toJSON();
+                var imageUrl = selectedImage.url;
+                bgImageInput.value = imageUrl;
+                previewImage.src = imageUrl;
+            });
+
+            mediaUploader.open();
+        });
+    }
+
+    if (changeImageButton) {
+        changeImageButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            var mediaUploader = wp.media({
+                title: '<?php esc_html_e("Changer l\'image", "single-post-paginate-domain"); ?>',
+                multiple: false
+            });
+
+            mediaUploader.on('select', function() {
+                var selectedImage = mediaUploader.state().get('selection').first().toJSON();
+                var imageUrl = selectedImage.url;
+                bgImageInput.value = imageUrl;
+                previewImage.src = imageUrl;
+            });
+
+            mediaUploader.open();
+        });
+    }
+
+    if (removeImageButton) {
+        removeImageButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            bgImageInput.value = '';
+            previewImage.src = '';
+        });
+    }
+
+
+    // Is image link
+    var isImageLink = document.querySelector('.spp_is_custom_img_link');
+    var sppImageChooseLinkDiv = document.querySelector('.spp-choose-type-of-link-div');
+    var sppImageEnterLinkDiv = document.querySelector('.spp_custom_logo_link_div');
+	var sppImageChooseLinkInput = document.querySelector('.spp_is_custom_img_link_to_home');
+    var sppCustomLogoLink = document.querySelector('.spp_custom_logo_link');
+
+    sppImageChooseLinkDiv.style.display = 'none';
+
+    if (isImageLink.checked) {
+        ShowImageLinkToChooseField(sppImageChooseLinkDiv);
+    } else {
+        hideImageLinkToChooseField(sppImageChooseLinkDiv, sppImageChooseLinkInput);
+        hideImageLinkToChooseField(sppImageEnterLinkDiv, sppCustomLogoLink);
+    }
+
+    isImageLink.addEventListener('change', function() {
+        if (isImageLink.checked) {
+            ShowImageLinkToChooseField(sppImageChooseLinkDiv);
+        } else {
+            hideImageLinkToChooseField(sppImageChooseLinkDiv, sppImageChooseLinkInput);
+            hideImageLinkToChooseField(sppImageEnterLinkDiv, sppCustomLogoLink);
+        }
+    });
+
+
+    function hideImageLinkToChooseField(element, elementInput) {
+        element.style.display = 'none';
+        elementInput.checked = false;
+        elementInput.value = '';
+    }
+    function ShowImageLinkToChooseField(element) {
+        element.style.display = 'block';
+
+    }
+
+    sppImageEnterLinkDiv.style.display = 'none';
+    if (sppImageChooseLinkInput.checked) {
+        ShowImageLinkToChooseField(sppImageEnterLinkDiv);
+    } else {
+        hideImageLinkToChooseField(sppImageEnterLinkDiv, sppCustomLogoLink);
+    }
+    sppImageChooseLinkInput.addEventListener('change', function() {
+        if (sppImageChooseLinkInput.checked) {
+            ShowImageLinkToChooseField(sppImageEnterLinkDiv);
+        } else {
+            hideImageLinkToChooseField(sppImageEnterLinkDiv, sppCustomLogoLink);
+        }
+    });
 });

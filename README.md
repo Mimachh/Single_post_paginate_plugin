@@ -45,6 +45,20 @@ Je fais la liste des champs que je vais devoir faire dans le form :
 - url droite
 
 
+
+Ce que je dois faire aujourd'hui :
+- choix de l'image du template
 - image pour l'autre template
-- couleur de fond d'image
-- couleur de fond des flèche
+
+- Faire le js : relier chaque bouton à une const
+- afficher ou non les div en fonction des réponses
+- clear les inputs en fonction
+- faire le formulaire js
+- faire la valider php
+- editer
+- supprimer
+- cacher le custom post
+- afficher sur page principale
+- cloisoner les parties payantes
+
+- outils ponceuse girafe

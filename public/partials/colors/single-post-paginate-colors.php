@@ -19,3 +19,7 @@ function sppGenerateBigPointColor() {
 function sppGenerateSmallPointColor() {
     return $smallPointColor = esc_html(get_option('spp_small_points_color_pagination'));
 }
+
+function sppGenerateBackgroundTextColor() {
+    return $bgTextColor = esc_html(get_option('spp_bg_text_color_pagination'));
+}

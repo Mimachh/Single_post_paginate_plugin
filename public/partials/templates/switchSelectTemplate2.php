@@ -1,6 +1,6 @@
 <?php
 
-function switchForSelectedTemplate() {
+function switchForSelectedTemplate2() {
     
 
     // PREV NEXT URL
@@ -26,6 +26,7 @@ function switchForSelectedTemplate() {
 
     // template premium 1
     $spp_template_premium_1 = spp_template_premium_1($previous_post_url, $next_post_url, $previous_title, $next_title);
+
 
     $selectedTemplate = "";
     $choixDuTemplate = esc_html(get_option('spp_template_pagination'));
