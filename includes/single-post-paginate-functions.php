@@ -3,6 +3,7 @@
 require_once dirname(dirname(__FILE__)) . '/admin/single-post-paginate-main.php';
 require_once dirname(dirname(__FILE__)) . '/admin/single-post-paginate-options-page.php';
 require_once dirname(dirname(__FILE__)) . '/admin/single-post-paginate-style-page.php';
+require_once dirname(dirname(__FILE__)) . '/admin/single-post-paginate-shortcode-page.php';
 
 add_action('admin_menu', 'Single_Post_Paginate_Add_My_Admin_Link');
 
@@ -40,6 +41,14 @@ function Single_Post_Paginate_Add_My_Admin_Link() {
         'manage_options', // capability
         'spp-admin-style', // URL slug
         'single_post_paginate_style_page_html' // callback
+    );
+    add_submenu_page(
+        'spp-admin-main-page', // slug parent
+        'SPP Shortcode', // header title
+        'Shortcode', // nom du sous menu
+        'manage_options', // capability
+        'spp-admin-shortcode', // URL slug
+        'single_post_paginate_shortcode_page_html' // callback
     );
 
 }

@@ -161,10 +161,10 @@
 /* THIRD TEMPLATE */
 
 
-
-p, li, a{
+.spp-p11 p, .spp-p11 li, .spp-p11 a {
   font-size: 14px;
 }
+
 
 .spp-container-3 {
   width: 100%;

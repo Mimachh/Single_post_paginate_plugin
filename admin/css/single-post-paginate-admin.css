@@ -18,7 +18,7 @@
 .spp-screen-wrap {
    width: calc(100% + 25px) !important;
    margin-left: -20px;
-   min-height: 100vh;
+   min-height:100vh;
 }
 .spp-screen-wrap th {
    color: var(--single-post-paginate-disabled-color);
@@ -178,3 +178,24 @@
    z-index: 1000;
 }
 
+/* FORMULAIRE SHORTCODE */
+
+.spp-input-field-shortcode {
+   display: flex;
+   align-items: center;
+   gap: 25px;
+   margin-left: 25px;
+}
+.spp-input-field-shortcode-template {
+   display: flex;
+   align-items: self-start;
+   gap: 25px;
+   margin-left: 25px;
+}
+.spp-input-field-shortcode-url {
+
+   margin-left: 25px;
+}
+.spp-input-field-shortcode > .input {
+  width: 70%;
+}

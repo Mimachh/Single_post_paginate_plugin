@@ -34,7 +34,7 @@ function spp_sanitize_number_field($value) {
 }
 function sppBorderRadiusFieldHTML() { ?>
     <div class="spp-input-field">
-        <input name="spp_border_radius_pagination" type="number" value="<?php echo esc_attr( get_option('spp_border_radius_pagination', "0") ); ?>" >
+        <input name="spp_border_radius_pagination" type="number" min="0" value="<?php echo esc_attr( get_option('spp_border_radius_pagination', "0") ); ?>" >
         px
     </div>
 <?php }
@@ -54,7 +54,7 @@ function sppBorderStyleFieldHTML() {
     <div class="spp-input-field">
         <select name="spp_border_style_pagination">
             <option value="solid" <?php selected($border_style, 'solid'); ?>><?php esc_html_e('Solide', 'single-post-paginate-domain'); ?></option>
-            <option value="dashed" <?php selected($border_style, 'dashed'); ?>><?php esc_html_e('Pointillé', 'single-post-paginate-domain'); ?></option>
+            <option value="dashed" <?php selected($border_style, 'dashed'); ?>><?php esc_html_e('Haché', 'single-post-paginate-domain'); ?></option>
             <option value="dotted" <?php selected($border_style, 'dotted'); ?>><?php esc_html_e('En pointillés', 'single-post-paginate-domain'); ?></option>
         </select>
     </div>

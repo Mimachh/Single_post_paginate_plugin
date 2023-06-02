@@ -32,7 +32,8 @@
 })( jQuery );
 
 
-window.onload = (event) => {
+
+document.addEventListener('DOMContentLoaded', function(event) {
     // Récupérer l'élément de commutation (input switch) pour l'activation de la pagination
     var activateSwitch = document.getElementById('spp_activate_pagination');
 
@@ -135,4 +136,4 @@ window.onload = (event) => {
 
 
 	
-};
+});
